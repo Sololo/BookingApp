@@ -1,0 +1,55 @@
+* {
+
+    font-family: 'Poppins', sans-serif;
+}
+
+.h-font {
+    font-family: 'Merienda', cursive;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+.custom-bg {
+    background-color: #2d9e8b;
+    border: 1px solid #2d9e8b;
+}
+
+.custom-bg:hover {
+    background-color: #279e8c;
+    border-color: #279e8c;
+}
+
+/* .img1 {
+    background-color: red;
+    width: 60px;
+    height: 60px;
+     -webkit-mask-image: url('http://i.stack.imgur.com/gZvK4.png');
+  } */
+
+  .img1 {
+    filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(321deg) brightness(0%) contrast(100%);
+  }
+
+  /* .swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+  } */
