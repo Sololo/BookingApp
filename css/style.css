@@ -1,3 +1,8 @@
+:root {
+  --teal: #2d9e8b;
+  --teal_hover: #279e8c;
+}
+
 * {
 
     font-family: 'Poppins', sans-serif;
@@ -16,13 +21,13 @@ input::-webkit-inner-spin-button {
 
 
 .custom-bg {
-    background-color: #2d9e8b;
-    border: 1px solid #2d9e8b;
+    background-color: var(--teal);
+    border: 1px solid var(--teal);
 }
 
 .custom-bg:hover {
-    background-color: #279e8c;
-    border-color: #279e8c;
+    background-color: var(--teal_hover);
+    border-color: var(--teal_hover);
 }
 
 /* .img1 {
@@ -53,3 +58,16 @@ input::-webkit-inner-spin-button {
     display: block;
     width: 100%;
   } */
+
+  .availability-form {
+    margin-top: -50px;
+    z-index: 2;
+    position: relative;
+}
+
+@media screen and (max-width: 575px) {
+    .availability-form {
+        margin-top: 25px;
+        padding: 0 35px;
+    }
+}
