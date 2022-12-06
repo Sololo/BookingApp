@@ -1,5 +1,8 @@
 <?php
-    require('inc/db_config.php');
+    error_reporting(E_ALL);
+    ini_set('display_errors', 'On');
+
+    require_once __DIR__ . '/inc/db_config.php';
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +19,7 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             width: 400px;
         }
     </style>
@@ -25,7 +28,7 @@
 <body class="bg-light">
 
     <div class="login-form text-center rounded bg-white shadow overflow-hidden">
-        <form method="POST" action="">
+        <form method="POST">
             <h4 class="bg-dark text-white py-3">ADMIN LOGIN PANEL</h4>
             <div class="p-4">
                 <div class="mb-3">
@@ -38,6 +41,15 @@
             </div>
         </form>
     </div>
+
+    <?php
+        if (isset($_POST['login'])) {
+            $frm_data = filteration($_POST);
+            
+            $query = "SELECT * FROM `admin_cred` WHERE `admin_name`=? AND `admin_pass`=?";
+            $values = 
+        }
+    ?>
 
     <?php require('inc/script.php') ?>
 </body>
