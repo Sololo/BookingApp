@@ -35,7 +35,7 @@
                     <input name="admin_name" required type="text" class="form-control shadow-none text-center" placeholder="Admin Name">
                 </div>
                 <div class="mb-4">
-                    <input name="admin_password" required type="password" class="form-control shadow-none text-center" placeholder="Password">
+                    <input name="admin_pass" required type="password" class="form-control shadow-none text-center" placeholder="Password">
                 </div>
                 <button name="login" type="submit" class="btn text-white custom-bg shadow-none">LOGIN</button>
             </div>

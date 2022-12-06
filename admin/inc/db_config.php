@@ -11,7 +11,7 @@
 //     }
 
 $user = 'root';
-$password = 'root';
+$password = '';
 $db = 'bhwebsite';
 $host = 'localhost';
 $port = 3306;
