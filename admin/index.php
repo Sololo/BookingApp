@@ -47,7 +47,10 @@
             $frm_data = filteration($_POST);
             
             $query = "SELECT * FROM `admin_cred` WHERE `admin_name`=? AND `admin_pass`=?";
-            $values = 
+            $values = [$frm_data['admin_name'],$frm_data['admin_pass']];
+
+            $res = select($query,$values,"ss");
+            print_r($res);
         }
     ?>
 
