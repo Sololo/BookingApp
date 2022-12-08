@@ -1,8 +1,13 @@
 <?php
     error_reporting(E_ALL);
     ini_set('display_errors', 'On');
-
+    require_once __DIR__ . '/inc/essentials.php';
     require_once __DIR__ . '/inc/db_config.php';
+
+    session_start();
+    if((isset($_SESSION['adminLogin']) && $_SESSION['adminLogin'] == true)) {
+        redirect('dashboard.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -43,15 +48,22 @@
     </div>
 
     <?php
-        if (isset($_POST['login'])) {
-            $frm_data = filteration($_POST);
-            
-            $query = "SELECT * FROM `admin_cred` WHERE `admin_name`=? AND `admin_pass`=?";
-            $values = [$frm_data['admin_name'],$frm_data['admin_pass']];
+    if (isset($_POST['login'])) {
+        $frm_data = filteration($_POST);
 
-            $res = select($query,$values,"ss");
-            print_r($res);
+        $query = "SELECT * FROM `admin_cred` WHERE `admin_name`=? AND `admin_pass`=?";
+        $values = [$frm_data['admin_name'], $frm_data['admin_pass']];
+
+        $res = select($query, $values, "ss");
+        if ($res->num_rows == 1) {
+            $row = mysqli_fetch_assoc($res);
+            $_SESSION['adminLogin'] = true;
+            $_SESSION['adminId'] = $row['sr_no'];
+            redirect('dashboard.php');
+        } else {
+            alert('error', 'Login failed' - 'Invalid Credentials!');
         }
+    }
     ?>
 
     <?php require('inc/script.php') ?>
