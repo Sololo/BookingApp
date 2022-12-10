@@ -4,7 +4,6 @@ $user = 'root';
 $password = 'root';
 $db = 'bhwebsite';
 $host = 'localhost';
-$port = 3306;
 
 //  initializes MySQLi and returns an object to use with the mysqli_real_connect()
 $link = mysqli_init();
@@ -15,8 +14,7 @@ $con = mysqli_real_connect(
    $host,
    $user,
    $password,
-   $db,
-   $port
+   $db
 );
 
 // Filter Login Input 
@@ -36,10 +34,10 @@ function filteration($data)
 function select($sql, $values, $datatypes)
 {
    $globals = $GLOBALS;
-   //$globals['con'] = $globals['con'];
-   // foreach ($globals as $key => $value) {
-   //    $GLOBALS[$key] = $value;
-   // }
+   $globals['con'] = $globals['con'];
+   foreach ($globals as $key => $value) {
+      $GLOBALS[$key] = $value;
+   }
    $con = $globals['con'];
    if ($stmt = mysqli_prepare($con, $sql)) {
       mysqli_stmt_bind_param($stmt, $datatypes, ...$values);
