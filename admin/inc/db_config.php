@@ -34,12 +34,12 @@ function filteration($data)
 function select($sql, $values, $datatypes)
 {
    $globals = $GLOBALS;
-   $globals['con'] = $globals['con'];
    foreach ($globals as $key => $value) {
       $GLOBALS[$key] = $value;
    }
    $con = $globals['con'];
-   if ($stmt = mysqli_prepare($con, $sql)) {
+   $stmt = mysqli_prepare($con, $sql);
+   if ($stmt) {
       mysqli_stmt_bind_param($stmt, $datatypes, ...$values);
       if (mysqli_stmt_execute($stmt)) {
          $res = mysqli_stmt_get_result($stmt);
